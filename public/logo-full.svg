@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6C63FF" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,300;1,9..40,900&amp;display=swap');
+      .brand-text { font-family: 'DM Sans', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+      .labs-text { font-family: 'DM Sans', sans-serif; font-style: italic; font-weight: 300; text-transform: uppercase; fill: rgba(255, 255, 255, 0.3); }
+    </style>
+  </defs>
+
+  <!-- Icon Section -->
+  <g transform="translate(10, 10) scale(1.8)">
+    <path 
+      d="M2 13h2l3 7 6-16h9" 
+      stroke="url(#logo-grad)" 
+      stroke-width="2.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+      filter="url(#glow)"
+    />
+    <g transform="translate(15.5, 9.5) skewX(-15)">
+      <ellipse cx="2.5" cy="3.5" rx="2.2" ry="3.8" stroke="#FFFFFF" stroke-width="2.5" fill="rgba(108, 99, 255, 0.1)" />
+      <path d="M1 5.5 L4 1.5" stroke="#FFFFFF" stroke-width="1.2" stroke-opacity="0.8" />
+    </g>
+  </g>
+
+  <!-- Typography Section - Using a single text element to avoid overlap -->
+  <text x="50" y="44" class="brand-text" font-size="34" fill="#FFFFFF" letter-spacing="-1">
+    ROOT<tspan fill="#6C63FF">ZERO</tspan>
+    <tspan dx="0" class="labs-text" font-size="24" font-weight="300" fill-opacity="0.3">LABS</tspan>
+  </text>
+</svg>
