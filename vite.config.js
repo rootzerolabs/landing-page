@@ -7,10 +7,29 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    {
+      name: 'rewrite-juris-ai',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url === '/juris-ai' || req.url === '/juris-ai/') {
+            req.url = '/juris-ai.html';
+          }
+          next();
+        });
+      },
+    },
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        juris: path.resolve(__dirname, 'juris-ai.html'),
+      },
     },
   },
 })
