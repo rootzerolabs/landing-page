@@ -11,8 +11,10 @@ export default defineConfig({
       name: 'rewrite-juris-ai',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req.url === '/juris-ai' || req.url === '/juris-ai/') {
-            req.url = '/juris-ai.html';
+          if (req.url === '/juris-ai') {
+            res.writeHead(301, { Location: '/juris-ai/' });
+            res.end();
+            return;
           }
           next();
         });
@@ -28,7 +30,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        juris: path.resolve(__dirname, 'juris-ai.html'),
+        juris: path.resolve(__dirname, 'juris-ai/index.html'),
       },
     },
   },
