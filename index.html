@@ -202,6 +202,20 @@
   .lw-card:hover { transform: translateY(-3px); box-shadow: 0 24px 60px -22px rgba(21,32,28,0.28), 0 8px 22px -10px rgba(21,32,28,0.12); }
 </style>
 
+<style id="lw-hero-intro">
+@media (prefers-reduced-motion: no-preference){
+  /* hero load-in: left column staggered, product card after */
+  #top div[style*="1.06fr"] > div:first-child > *,
+  #top .lw-card{opacity:0;animation:lwHero .85s cubic-bezier(.16,1,.3,1) forwards}
+  #top div[style*="1.06fr"] > div:first-child > *:nth-child(1){animation-delay:.10s}
+  #top div[style*="1.06fr"] > div:first-child > *:nth-child(2){animation-delay:.22s}
+  #top div[style*="1.06fr"] > div:first-child > *:nth-child(3){animation-delay:.34s}
+  #top div[style*="1.06fr"] > div:first-child > *:nth-child(4){animation-delay:.46s}
+  #top div[style*="1.06fr"] > div:first-child > *:nth-child(5){animation-delay:.58s}
+  #top .lw-card{animation-duration:.95s;animation-delay:.40s}
+  @keyframes lwHero{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+}
+</style>
 </head>
 <body style="margin:0;background:#F5F3EC;">
 <div style="--accent: #0F4741; --accent-2: #1A6B62; --at: #EDF1EE; --as: #D8E4E0; font-family: 'DM Sans', system-ui, sans-serif; color: #15201C; background: #F5F3EC; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; overflow-x: hidden;">
