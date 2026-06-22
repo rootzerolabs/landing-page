@@ -1,18 +1,934 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Root Zero Labs | Software & AI Solutions for Startups & Enterprises</title>
-    <meta name="description" content="Root Zero Labs helps businesses scale with high-performance websites, mobile apps, and AI-driven automation. We build the software layer between where you are and where you need to be." />
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RootZero Labs — The AI that learns how your firm works</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/7ac7ad03-7068-4b13-bdc9-0becae07c644.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/1ca03566-e395-47f0-ad1f-40fbec967e95.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/3643e064-b241-438d-b6f6-b1826405cdbd.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/790571cd-f8b1-42bb-8e9a-aee01a2a343e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/611cf937-084b-4ce8-9255-45334505799e.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/66586dc4-441b-42e0-8e90-26f4aa82da85.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/16f2150c-c1cd-4267-b520-e2e2b1c3936a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/f1a2aa3d-4981-40ba-a325-6ec8104ab54b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/16f2150c-c1cd-4267-b520-e2e2b1c3936a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/f1a2aa3d-4981-40ba-a325-6ec8104ab54b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/16f2150c-c1cd-4267-b520-e2e2b1c3936a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/f1a2aa3d-4981-40ba-a325-6ec8104ab54b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/09c30d19-547b-488f-b702-c84108e13fe6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/f643c2c6-b94a-46a6-81df-f6bbe4e4db73.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/09c30d19-547b-488f-b702-c84108e13fe6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/f643c2c6-b94a-46a6-81df-f6bbe4e4db73.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/09c30d19-547b-488f-b702-c84108e13fe6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/f643c2c6-b94a-46a6-81df-f6bbe4e4db73.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/09c30d19-547b-488f-b702-c84108e13fe6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/f643c2c6-b94a-46a6-81df-f6bbe4e4db73.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F5F3EC; }
+  @keyframes lwfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes lwblink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  .lw-cursor { display: inline-block; width: 2px; height: 0.95em; background: var(--accent,#0F4741); vertical-align: -1px; margin-left: 2px; animation: lwblink 1.05s steps(2) infinite; }
+  .lw-link:hover { color: var(--accent,#0F4741) !important; }
+  .lw-cta:hover { background: var(--accent-2,#1A6B62) !important; }
+  .lw-ghost:hover { border-color: var(--accent,#0F4741) !important; color: var(--accent,#0F4741) !important; }
+  .lw-card { transition: transform .25s ease, box-shadow .25s ease; }
+  .lw-card:hover { transform: translateY(-3px); box-shadow: 0 24px 60px -22px rgba(21,32,28,0.28), 0 8px 22px -10px rgba(21,32,28,0.12); }
+</style>
+
+</head>
+<body style="margin:0;background:#F5F3EC;">
+<div style="--accent: #0F4741; --accent-2: #1A6B62; --at: #EDF1EE; --as: #D8E4E0; font-family: 'DM Sans', system-ui, sans-serif; color: #15201C; background: #F5F3EC; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; overflow-x: hidden;">
+
+  <!-- ============ NAV ============ -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(245,243,236,0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid #E1DCD0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 66px; display: flex; align-items: center; gap: 32px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit;">
+        <div style="width: 30px; height: 30px; border-radius: 8px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 16px; letter-spacing: -0.04em; position: relative;">L<span style="position: absolute; inset: 4px; border: 1px solid rgba(255,255,255,0.2); border-radius: 5px;"></span></div>
+        <span style="font-weight: 600; font-size: 18px; letter-spacing: -0.025em;">Lawnch<em style="font-style: italic; color: var(--accent,#0F4741); font-weight: 500;">AI</em></span>
+      </a>
+      
+      <a href="mailto:siddhant@rootzerolabs.com" style="display: flex; align-items: center; gap: 7px; text-decoration: none; padding-left: 15px; border-left: 1px solid #D8D3C6;">
+        <span style="font-size: 11px; color: #8A8578; font-weight: 500;">by</span>
+        <span style="font-size: 13.5px; font-weight: 700; font-style: italic; letter-spacing: -0.01em;"><span style="color: #15201C;">Root</span><span style="color: #E85D2A;">Zero</span> <span style="color: #9A958A; font-weight: 600;">Labs</span></span>
+      </a>
+      
+      <nav style="display: flex; align-items: center; gap: 4px; margin-left: 14px;">
+        <a class="lw-link" href="#lifecycle" style="text-decoration: none; color: #3A4641; font-size: 13.5px; padding: 7px 12px; border-radius: 7px;">Lifecycle</a>
+        <a class="lw-link" href="#agent" style="text-decoration: none; color: #3A4641; font-size: 13.5px; padding: 7px 12px; border-radius: 7px;">The agent</a>
+        <a class="lw-link" href="#results" style="text-decoration: none; color: #3A4641; font-size: 13.5px; padding: 7px 12px; border-radius: 7px;">Results</a>
+        <a class="lw-link" href="#security" style="text-decoration: none; color: #3A4641; font-size: 13.5px; padding: 7px 12px; border-radius: 7px;">Security</a>
+        <a class="lw-link" href="#how" style="text-decoration: none; color: #3A4641; font-size: 13.5px; padding: 7px 12px; border-radius: 7px;">How it learns</a>
+      </nav>
+      <div style="flex: 1;"></div>
+      <a class="lw-link" href="mailto:siddhant@rootzerolabs.com" style="text-decoration: none; color: #3A4641; font-size: 13.5px; font-weight: 500;">Sign in</a>
+      <a class="lw-cta" href="mailto:siddhant@rootzerolabs.com" style="text-decoration: none; background: var(--accent,#0F4741); color: #fff; font-size: 13.5px; font-weight: 500; padding: 9px 17px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">Book a demo
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position: relative;">
+    <div style="position: absolute; top: -120px; right: -160px; width: 620px; height: 620px; border-radius: 999px; background: radial-gradient(circle at 50% 50%, var(--at,#EDF1EE), rgba(245,243,236,0)); pointer-events: none;"></div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 70px 40px 40px; display: grid; grid-template-columns: 1.06fr 0.94fr; gap: 56px; align-items: center; position: relative;">
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent,#0F4741);">Private AI workspace for law firms</div>
+
+        
+        
+          <h1 style="margin: 22px 0 0; font-weight: 600; font-size: 62px; line-height: 0.98; letter-spacing: -0.038em;">Every matter, one<br><em style="font-style: italic; color: var(--accent,#0F4741); font-weight: 500;">intelligent</em> workspace.</h1>
+        
+
+        <p style="margin: 24px 0 0; font-size: 18px; line-height: 1.55; color: #3A4641; max-width: 520px;">LawnchAI runs your practice end to end — intake, matters, documents, drafting, e-signature and close — on top of a <strong style="color: #15201C; font-weight: 600;">private, fine-tuned model that is yours alone</strong>. It learns your clients, your vocabulary and your way of working through retrieval-grounded context — and never trains anyone else's.</p>
+
+        <div style="display: flex; gap: 13px; margin-top: 32px; flex-wrap: wrap;">
+          <a class="lw-cta" href="mailto:siddhant@rootzerolabs.com" style="text-decoration: none; background: var(--accent,#0F4741); color: #fff; font-size: 15px; font-weight: 500; padding: 14px 24px; border-radius: 10px; display: inline-flex; align-items: center; gap: 9px;">Book a demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"></path></svg>
+          </a>
+          <a class="lw-ghost" href="#lifecycle" style="text-decoration: none; background: #FDFCF8; border: 1px solid #DEDACF; color: #15201C; font-size: 15px; font-weight: 500; padding: 14px 22px; border-radius: 10px; display: inline-flex; align-items: center; gap: 9px;">See the lifecycle</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 18px; margin-top: 30px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B756F; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.6l5 2v3.2c0 3.2-2.1 5.6-5 6.6-2.9-1-5-3.4-5-6.6V3.6z"></path><path d="M5.8 8l1.5 1.6L10.4 6.5"></path></svg>Your data never trains foundation models</span>
+          <span style="display: inline-flex; align-items: center; gap: 7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.4"></rect><path d="M5.3 7V5a2.7 2.7 0 015.4 0v2"></path></svg>Private model, isolated per firm</span>
+        </div>
+      </div>
+
+      <!-- HERO PRODUCT PEEK · cited agent answer -->
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 16px; box-shadow: 0 30px 70px -28px rgba(21,32,28,0.32), 0 10px 26px -14px rgba(21,32,28,0.12); overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 9px; padding: 13px 16px; border-bottom: 1px solid #E8E4D8; background: #F5F3EC;">
+          <span style="width: 22px; height: 22px; border-radius: 6px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center;"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.6 4.4L14 8l-4.4 1.6L8 14l-1.6-4.4L2 8l4.4-1.6z"></path></svg></span>
+          <span style="font-weight: 600; font-size: 13px;">LawnchAI · case agent</span>
+          <span style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.04em; color: #6B756F; background: #FDFCF8; border: 1px solid #DEDACF; padding: 3px 9px; border-radius: 999px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #6BA88A;"></span>Private · firm-only</span>
+        </div>
+        <div style="padding: 17px 17px 16px;">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #A0A69F; margin-bottom: 9px;">C-2847 · Holman v. Pace</div>
+          <div style="background: #F5F3EC; border: 1px solid #E8E4D8; border-radius: 12px 12px 12px 4px; padding: 12px 14px; font-size: 13px; color: #3A4641; margin-bottom: 12px;">Did the breach happen before or after the March delivery?</div>
+          <div style="background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); border-radius: 12px 12px 4px 12px; padding: 13px 15px; font-size: 13.5px; line-height: 1.6; color: #15201C;">
+            Opposing counsel argues breach occurred March 14<span style="display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 5px; background: #fff; color: var(--accent,#0F4741); font-family: 'DM Mono', monospace; font-size: 10px; border: 1px solid var(--as,#D8E4E0); margin: 0 2px;">¶ brief p.3</span>. Your site logs show delivery on March 12<span style="display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 5px; background: #fff; color: var(--accent,#0F4741); font-family: 'DM Mono', monospace; font-size: 10px; border: 1px solid var(--as,#D8E4E0); margin: 0 2px;">SiteLog.csv</span> — two days <em style="font-style: italic;">before</em>. See also Ravi's note<span style="display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 5px; background: #fff; color: var(--accent,#0F4741); font-family: 'DM Mono', monospace; font-size: 10px; border: 1px solid var(--as,#D8E4E0); margin: 0 2px;">sticky</span>.<span class="lw-cursor"></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 13px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.05em; color: #6B756F;">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#6BA88A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-8"></path></svg>
+            Every claim grounded in your firm's own files — nothing invented.
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; padding: 11px 16px; border-top: 1px solid #E8E4D8; background: #F5F3EC;">
+          <div style="flex: 1; background: #FDFCF8; border: 1px solid #DEDACF; border-radius: 8px; padding: 9px 12px; font-size: 12.5px; color: #A0A69F;">Ask anything about this matter…</div>
+          <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 5px 8px; border: 1px solid #DEDACF; border-radius: 5px; color: #6B756F;">⌘ /</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUST STRIP -->
+    
+    <div style="max-width: 1200px; margin: 26px auto 0; padding: 0 40px;">
+      <div style="border-top: 1px solid #E1DCD0; border-bottom: 1px solid #E1DCD0; padding: 18px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B756F;">
+        <span>Built for legal practice</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: var(--accent,#0F4741);"></span>Private LLM per firm</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: var(--accent,#0F4741);"></span>Encrypted in transit &amp; at rest</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: var(--accent,#0F4741);"></span>Zero data sold or shared</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: var(--accent,#0F4741);"></span>Full audit trail</span>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- ============ VALUE / PROBLEM ============ -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 92px 40px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;">
+      <div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px; display: flex; align-items: center; gap: 12px;"><span style="width: 18px; height: 1px; background: var(--accent,#0F4741);"></span>The problem with generic AI</div>
+        <h2 style="font-weight: 600; font-size: 38px; line-height: 1.08; letter-spacing: -0.03em; margin: 0;">Off-the-shelf AI doesn't know your matters — and learns nothing by helping.</h2>
+      </div>
+      <div style="padding-top: 6px;">
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4641; margin: 0 0 14px;">General assistants sit <em style="font-style: italic; color: var(--accent,#0F4741);">next to</em> a lawyer's work. They can't see the deposition, the site logs, or last week's partner note — so they guess, and guesses are malpractice risk.</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4641; margin: 0;">LawnchAI <em style="font-style: italic; color: var(--accent,#0F4741);">absorbs</em> the work instead. Every document, note, intake form and decision enters your firm's private retrieval index — context that grounds the next answer — and the model that learns it is dedicated to your firm, never pooled, never used to train anything outside your walls.</p>
+      </div>
+    </div>
+
+    <!-- three contrast tiles -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px;">
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 26px 24px;">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741); display: grid; place-items: center; margin-bottom: 16px;"><svg width="19" height="19" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s2-5 6-5 6 5 6 5"></path><circle cx="8" cy="5" r="2.2"></circle></svg></div>
+        <div style="font-weight: 600; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px;">Grounded, not guessing</div>
+        <p style="font-size: 13.5px; line-height: 1.55; color: #6B756F; margin: 0;">Every answer cites the exact doc, note or message it came from. Click the citation, land on the source. No invented authority.</p>
+      </div>
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 26px 24px;">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741); display: grid; place-items: center; margin-bottom: 16px;"><svg width="19" height="19" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.6l5 2v3.2c0 3.2-2.1 5.6-5 6.6-2.9-1-5-3.4-5-6.6V3.6z"></path></svg></div>
+        <div style="font-weight: 600; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px;">Private by design</div>
+        <p style="font-size: 13.5px; line-height: 1.55; color: #6B756F; margin: 0;">A dedicated, isolated model instance for your firm. Your files and prompts are never pooled with other customers and never feed a public model.</p>
+      </div>
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 26px 24px;">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741); display: grid; place-items: center; margin-bottom: 16px;"><svg width="19" height="19" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v12M3 6l5-4 5 4"></path><path d="M3 10l5 4 5-4"></path></svg></div>
+        <div style="font-weight: 600; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px;">Compounding advantage</div>
+        <p style="font-size: 13.5px; line-height: 1.55; color: #6B756F; margin: 0;">The longer your firm works in LawnchAI, the more it knows your clients and craft. Switching cost for competitors, leverage for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIFECYCLE ============ -->
+  <section id="lifecycle" style="max-width: 1200px; margin: 0 auto; padding: 100px 40px 0; scroll-margin-top: 80px;">
+    <div style="text-align: center; max-width: 720px; margin: 0 auto 14px;">
+      <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;">The whole matter, one place</div>
+      <h2 style="font-weight: 600; font-size: 40px; line-height: 1.05; letter-spacing: -0.03em; margin: 0;">The complete lifecycle of a legal matter.</h2>
+      <p style="font-size: 16.5px; line-height: 1.55; color: #3A4641; margin: 18px 0 0;">From the first intake form to the closed-and-archived file — and every draft, signature and conversation in between. No more stitching together six disconnected tools.</p>
+    </div>
+
+    <!-- lifecycle rail -->
+    <div style="display: flex; align-items: stretch; gap: 0; margin: 44px 0 12px; flex-wrap: wrap; justify-content: center;">
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">01</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Intake</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Forms collect clients</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">02</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Matter</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">A home for the case</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">03</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Documents</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Draft, store, connect</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">04</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">AI drafting</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Cited, grounded work</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">05</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Sign</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Native e-signature</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">06</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Collaborate</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Chat & daily triage</div>
+      </div>
+      
+      <div style="flex: 1; min-width: 140px; position: relative; padding: 0 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; flex-shrink: 0;">07</span>
+          <span style="flex: 1; height: 1px; background: #DEDACF;"></span>
+        </div>
+        <div style="font-weight: 600; font-size: 14.5px; letter-spacing: -0.015em; margin-bottom: 3px;">Close</div>
+        <div style="font-size: 12px; line-height: 1.45; color: #6B756F;">Summarise & archive</div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ===== STAGE 1 · INTAKE ===== -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 64px 40px 0;">
+    <div style="display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">01</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>Intake &amp; client discovery</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">Capture clients with smart forms that file themselves.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Build intake and discovery forms from templates, or import an existing Google Form in one click. Send a link to a client, witness or opposing party — responses arrive in a clean inbox.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Template library + Google Form import</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Tag any response straight to a matter</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Tagged responses instantly become case context</li>
+        </ul>
+      </div>
+      <!-- vignette: intake responses -->
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); overflow: hidden;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #E8E4D8;">
+          <div style="font-weight: 600; font-size: 14px;">New-client intake</div>
+          <span style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent,#0F4741); background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); padding: 3px 9px; border-radius: 999px;">7 new responses</span>
+        </div>
+        <div style="padding: 8px 10px;">
+          
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 9px; margin: 2px 0;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 600; flex-shrink: 0;">JM</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 500; font-size: 13.5px;">Jordan Mills</div>
+              <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; color: #A0A69F;">PERSONAL INJURY · 2M AGO</div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent,#0F4741); background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); padding: 4px 9px; border-radius: 999px;"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h8M7 4l4 4-4 4"></path></svg>C-2901</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 9px; margin: 2px 0;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 600; flex-shrink: 0;">AO</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 500; font-size: 13.5px;">Amara Osei</div>
+              <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; color: #A0A69F;">EMPLOYMENT · 18M AGO</div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent,#0F4741); background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); padding: 4px 9px; border-radius: 999px;"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h8M7 4l4 4-4 4"></path></svg>New matter</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 9px; margin: 2px 0;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 600; flex-shrink: 0;">TR</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 500; font-size: 13.5px;">Tomás Reyes</div>
+              <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; color: #A0A69F;">CONTRACT REVIEW · 1H AGO</div>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent,#0F4741); background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); padding: 4px 9px; border-radius: 999px;"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h8M7 4l4 4-4 4"></path></svg>C-2847</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAGE 2 · CASES ===== -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 0;">
+    <div style="display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center;">
+      <!-- vignette: case header + parties -->
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); overflow: hidden;">
+        <div style="padding: 18px 20px 14px; border-bottom: 1px solid #E8E4D8;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="width: 8px; height: 8px; border-radius: 2px; background: var(--accent,#0F4741);"></span>
+            <span style="font-weight: 600; font-size: 17px; letter-spacing: -0.02em;">Holman v. Pace</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 10.5px; color: #3A4641; background: #FDFCF8; border: 1px solid #DEDACF; padding: 3px 10px; border-radius: 999px; margin-left: auto;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #C69654;"></span>Active · trial Aug 14</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 999px; background: #EEEBE2; color: #3A4641;">C-2847</span>
+            <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 999px; background: #EEEBE2; color: #3A4641;">Construction</span>
+            <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 999px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741);">High priority</span>
+          </div>
+        </div>
+        <div style="padding: 14px 16px;">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #A0A69F; margin-bottom: 10px;">Parties</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #E8E4D8; border-radius: 9px; background: #FDFCF8;"><span style="width: 26px; height: 26px; border-radius: 7px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center; font-size: 10px; font-weight: 600;">HC</span><div style="flex: 1;"><div style="font-weight: 600; font-size: 13px;">Holman Construction</div><div style="font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase; color: #6B756F;">Client · primary</div></div></div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #E8E4D8; border-radius: 9px; background: #FDFCF8;"><span style="width: 26px; height: 26px; border-radius: 7px; background: #B8765A; color: #fff; display: grid; place-items: center; font-size: 10px; font-weight: 600;">RP</span><div style="flex: 1;"><div style="font-weight: 600; font-size: 13px;">Reyes &amp; Park LLP</div><div style="font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase; color: #6B756F;">Opposing counsel</div></div></div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #E8E4D8; border-radius: 9px; background: #FDFCF8;"><span style="width: 26px; height: 26px; border-radius: 7px; background: #4F5D58; color: #fff; display: grid; place-items: center; font-size: 10px; font-weight: 600;">EM</span><div style="flex: 1;"><div style="font-weight: 600; font-size: 13px;">Hon. E. Maeda</div><div style="font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase; color: #6B756F;">Judge · Div 14</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">02</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>Matter workspace</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">A living home for every case.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Parties, key dates, status and tags up top. Documents, research notes, discovery notes and connected sticky notes below. The matter's full history — and its agent — in a single, organised view.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Yours, shared and closed — directories that stay tidy</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Research, discovery &amp; sticky notes, all matter-scoped</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>A case agent that has read everything in the file</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAGE 3 · DOCUMENTS ===== -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 0;">
+    <div style="display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">03</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>Documents &amp; drafting</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">Write, redact and sign — without leaving the matter.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Connect Google Workspace and Microsoft 365 as read-and-import directories, or draft natively in the built-in editor with the agent in the margin. Redact privileged spans, share with controlled visibility, and route for native e-signature with a full audit trail.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Native editor with agent-assisted drafting</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>One-click PII &amp; privilege redaction</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Built-in e-signature — multi-party routing, audit trail</li>
+        </ul>
+      </div>
+      <!-- vignette: redacted doc + esign -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 14px;">
+        <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); padding: 18px 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <span style="width: 28px; height: 34px; border-radius: 3px; background: #F5F3EC; border: 1px solid #DEDACF; display: grid; place-items: center; font-family: 'DM Mono', monospace; font-size: 8px; font-weight: 600; color: var(--accent,#0F4741);">DOC</span>
+            <div style="flex: 1;"><div style="font-weight: 600; font-size: 13.5px;">Motion to Compel — draft</div><div style="font-family: 'DM Mono', monospace; font-size: 10px; color: #A0A69F;">EDITED BY YOU · 12M AGO</div></div>
+            <span style="font-family: 'DM Mono', monospace; font-size: 9.5px; padding: 3px 9px; border-radius: 999px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741);">Draft</span>
+          </div>
+          <div style="font-size: 12.5px; line-height: 1.7; color: #3A4641;">Plaintiff served notice to <span style="background: #15201C; color: #15201C; border-radius: 2px; padding: 0 4px;">REDACTED NAME</span> on the morning of delivery. Site records confirm the shipment arrived at <span style="background: #15201C; color: #15201C; border-radius: 2px; padding: 0 4px;">REDACTED</span>, two days prior to the alleged breach date.</div>
+          <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 11px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.04em; color: #6B756F;"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#A6453D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="6.5" rx="1.2"></rect><path d="M5.3 7V5a2.7 2.7 0 015.4 0v2"></path></svg>2 privileged spans redacted</div>
+        </div>
+        <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); padding: 16px 20px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="width: 32px; height: 32px; border-radius: 8px; background: var(--at,#EDF1EE); color: var(--accent,#0F4741); display: grid; place-items: center;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 4 1 6-1.5S12 5 14 4"></path><path d="M2 14h12"></path></svg></span>
+            <div style="flex: 1;"><div style="font-weight: 600; font-size: 13.5px;">Settlement Agreement · signature envelope</div><div style="font-family: 'DM Mono', monospace; font-size: 10px; color: #A0A69F;">2 OF 3 SIGNED · AUDIT TRAIL ON</div></div>
+          </div>
+          <div style="display: flex; gap: 7px; margin-top: 13px;">
+            <span style="flex: 1; display: flex; align-items: center; gap: 6px; font-size: 11px; color: #3A4641; background: #F5F3EC; border: 1px solid #E8E4D8; border-radius: 7px; padding: 6px 9px;"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#6BA88A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-8"></path></svg>Client</span>
+            <span style="flex: 1; display: flex; align-items: center; gap: 6px; font-size: 11px; color: #3A4641; background: #F5F3EC; border: 1px solid #E8E4D8; border-radius: 7px; padding: 6px 9px;"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#6BA88A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-8"></path></svg>Partner</span>
+            <span style="flex: 1; display: flex; align-items: center; gap: 6px; font-size: 11px; color: #6B756F; background: #FDFCF8; border: 1px dashed #C9C4B6; border-radius: 7px; padding: 6px 9px;"><span style="width: 9px; height: 9px; border-radius: 999px; border: 1.5px solid #C69654;"></span>Co-counsel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAGE 4 · AGENT (anchor) ===== -->
+  <section id="agent" style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 0; scroll-margin-top: 80px;">
+    <div style="display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center;">
+      <!-- vignette: agent learned context -->
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 9px; padding: 13px 18px; border-bottom: 1px solid #E8E4D8; background: #F5F3EC;">
+          <span style="width: 22px; height: 22px; border-radius: 6px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center;"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.6 4.4L14 8l-4.4 1.6L8 14l-1.6-4.4L2 8l4.4-1.6z"></path></svg></span>
+          <span style="font-weight: 600; font-size: 13px;">What I've learned about this matter</span>
+        </div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 11px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="8" cy="8" r="6"></circle><path d="M8 5v3l2 1.5"></path></svg><div style="font-size: 13px; line-height: 1.5; color: #3A4641;">Trial set <strong style="color: #15201C;">Aug 14</strong>; witness list still needs Ravi's sign-off.</div></div>
+          <div style="display: flex; gap: 11px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 2h6l3 3v9H4z"></path><path d="M10 2v3h3"></path></svg><div style="font-size: 13px; line-height: 1.5; color: #3A4641;">Key facts pulled from <strong style="color: #15201C;">14 documents</strong> and <strong style="color: #15201C;">3 intake forms</strong>.</div></div>
+          <div style="display: flex; gap: 11px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M8 1.6l5 2v3.2c0 3.2-2.1 5.6-5 6.6-2.9-1-5-3.4-5-6.6V3.6z"></path></svg><div style="font-size: 13px; line-height: 1.5; color: #3A4641;">Settlement floor <strong style="color: #15201C;">$148K</strong> — flagged sensitive, never shared externally.</div></div>
+          <div style="border-top: 1px dashed #E8E4D8; padding-top: 12px; font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; color: #6B756F; display: flex; align-items: center; gap: 8px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #6BA88A;"></span>This memory lives in your firm's private model only</div>
+        </div>
+      </div>
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">04</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>The personalised agent</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">An associate that has read the entire file.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Ask anything about a matter and get a retrieval-grounded answer drawn from your own documents, notes and conversations — with a citation on every claim. The agent drafts motions, letters and summaries in your firm's voice, because the model was fine-tuned on your work.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Citations on every statement — verify in one click</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Drafts artifacts, not chit-chat</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Gets sharper with every matter you run</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAGE 5 · COLLABORATION + HOME ===== -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 0;">
+    <div style="display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">05</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>Team &amp; daily command</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">Your whole practice, coordinated.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Internal chat with DMs and per-matter channels keeps the conversation next to the work. The Home dashboard opens the day with sticky notes, to-dos, calendar, deadlines and team activity — and a notification center so nothing slips.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>DMs, channels &amp; shared docs, scoped to matters</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Daily triage: sticky notes, to-dos, calendar</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Notification center across every surface</li>
+        </ul>
+      </div>
+      <!-- vignette: sticky wall + todos -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div class="lw-card" style="background: #FCF2D9; border: 1px solid #E8D8A8; border-radius: 11px; padding: 14px 15px; transform: rotate(-1.2deg);">
+          <div style="font-size: 13px; line-height: 1.45; color: #453A1A;">Call Ravi re: trial prep — needs sign-off on the witness list before Friday.</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 9.5px; margin-top: 9px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em;">Mon · pinned</div>
+        </div>
+        <div class="lw-card" style="background: #E6ECE9; border: 1px solid #BECCC5; border-radius: 11px; padding: 14px 15px; transform: rotate(1deg);">
+          <div style="font-size: 13px; line-height: 1.45; color: #1A3A34;">Client meeting 2pm Thursday — bring the deposition draft.</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 9.5px; margin-top: 9px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em;">Tomorrow</div>
+        </div>
+        <div class="lw-card" style="grid-column: 1 / -1; background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 11px; padding: 14px 16px;">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #A0A69F; margin-bottom: 10px;">Today · to-do</div>
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #6B756F;"><span style="width: 16px; height: 16px; border-radius: 5px; background: var(--accent,#0F4741); display: grid; place-items: center;"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-8"></path></svg></span><span style="text-decoration: line-through;">File motion to compel</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #15201C;"><span style="width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid #C9C4B6;"></span>Review opposing brief, p.3</div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #15201C;"><span style="width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid #C9C4B6;"></span>Draft settlement letter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STAGE 6 · CLOSE ===== -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 72px 40px 0;">
+    <div style="display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center;">
+      <!-- vignette: close summary -->
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; box-shadow: 0 18px 44px -22px rgba(21,32,28,0.22); overflow: hidden;">
+        <div style="padding: 16px 20px; border-bottom: 1px solid #E8E4D8; display: flex; align-items: center; gap: 10px;">
+          <span style="width: 24px; height: 24px; border-radius: 7px; background: var(--accent,#0F4741); color: #fff; display: grid; place-items: center;"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-8"></path></svg></span>
+          <span style="font-weight: 600; font-size: 14px;">Case closed — outcome summary</span>
+        </div>
+        <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: #F5F3EC; border: 1px solid #E8E4D8; border-radius: 9px; padding: 12px 13px;"><div style="font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B756F; margin-bottom: 5px;">Outcome</div><div style="font-weight: 600; font-size: 14px;">Settled · $162K</div></div>
+            <div style="background: #F5F3EC; border: 1px solid #E8E4D8; border-radius: 9px; padding: 12px 13px;"><div style="font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B756F; margin-bottom: 5px;">Time billed</div><div style="font-weight: 600; font-size: 14px;">214.5 hrs</div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #3A4641; background: var(--at,#EDF1EE); border: 1px solid var(--as,#D8E4E0); border-radius: 9px; padding: 11px 13px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 2h6l3 3v9H4z"></path></svg>38 documents archived under 7-year retention rule</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; color: #6B756F;"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.6 4.4L14 8l-4.4 1.6L8 14l-1.6-4.4L2 8l4.4-1.6z"></path></svg>Outcome saved to your private model — informs the next matter</div>
+        </div>
+      </div>
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;"><span style="font-size: 13px;">06</span><span style="width: 16px; height: 1px; background: var(--accent,#0F4741);"></span>Close &amp; archive</div>
+        <h3 style="font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 14px;">Close the loop — and keep the knowledge.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #3A4641; margin: 0 0 18px;">Closing a matter isn't an archive flag. LawnchAI generates an outcome summary, applies your retention rules, notifies the team, and persists what was learned to the firm's private model — so the next, similar matter starts smarter.</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Auto outcome summary &amp; billed-time recap</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Retention rules applied automatically</li>
+          <li style="display: flex; gap: 11px; font-size: 14px; color: #3A4641;"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 8.5l3 3 7-8"></path></svg>Learnings persist privately for future matters</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS / SAVINGS ============ -->
+  <section id="results" style="max-width: 1200px; margin: 0 auto; padding: 100px 40px 0; scroll-margin-top: 80px;">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+      <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;">Benchmarked on pilot firms · Jul 2025 – Mar 2026</div>
+      <h2 style="font-weight: 600; font-size: 40px; line-height: 1.05; letter-spacing: -0.03em; margin: 0;">From 42 hours a matter to 24.</h2>
+      <p style="font-size: 16.5px; line-height: 1.55; color: #3A4641; margin: 18px 0 0;">A retrieval-grounded agent that drafts, researches and reviews against your own files doesn't just feel faster — it measurably is. Here is what changed for the firms in our pilot.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 46px 0 18px;">
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 28px 26px;">
+        <div style="font-weight: 600; font-size: 52px; line-height: 1; letter-spacing: -0.04em; color: var(--accent,#0F4741);">43%</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #3A4641; margin-top: 13px;">less time on every contested matter, from intake to filing.</div>
+      </div>
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 28px 26px;">
+        <div style="font-weight: 600; font-size: 52px; line-height: 1; letter-spacing: -0.04em; color: var(--accent,#0F4741);">~50%</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #3A4641; margin-top: 13px;">average time saved across the ten most common litigation tasks.</div>
+      </div>
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 28px 26px;">
+        <div style="font-weight: 600; font-size: 52px; line-height: 1; letter-spacing: -0.04em; color: var(--accent,#0F4741);">18 hrs</div>
+        <div style="font-size: 14px; line-height: 1.5; color: #3A4641; margin-top: 13px;">handed back to billable, substantive legal work — on every matter.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 26px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+          <div style="font-weight: 600; font-size: 17px; letter-spacing: -0.02em;">Hours per contested matter</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B756F;">Today → LawnchAI</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: #3A4641; margin-bottom: 7px;"><span>Intake & file organization</span><span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #A0A69F;">4.0 → <strong style="color: var(--accent,#0F4741); font-weight: 600;">2.0</strong></span></div>
+            <div style="position: relative; height: 7px; background: #EEEBE2; border-radius: 999px;">
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: #D8D3C6; border-radius: 999px; width: 28.6%;"></div>
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: var(--accent,#0F4741); border-radius: 999px; width: 14.3%;"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: #3A4641; margin-bottom: 7px;"><span>Research & precedent search</span><span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #A0A69F;">8.5 → <strong style="color: var(--accent,#0F4741); font-weight: 600;">5.0</strong></span></div>
+            <div style="position: relative; height: 7px; background: #EEEBE2; border-radius: 999px;">
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: #D8D3C6; border-radius: 999px; width: 60.7%;"></div>
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: var(--accent,#0F4741); border-radius: 999px; width: 35.7%;"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: #3A4641; margin-bottom: 7px;"><span>Document review</span><span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #A0A69F;">9.0 → <strong style="color: var(--accent,#0F4741); font-weight: 600;">5.0</strong></span></div>
+            <div style="position: relative; height: 7px; background: #EEEBE2; border-radius: 999px;">
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: #D8D3C6; border-radius: 999px; width: 64.3%;"></div>
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: var(--accent,#0F4741); border-radius: 999px; width: 35.7%;"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: #3A4641; margin-bottom: 7px;"><span>Drafting — pleadings & affidavits</span><span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #A0A69F;">14.0 → <strong style="color: var(--accent,#0F4741); font-weight: 600;">8.0</strong></span></div>
+            <div style="position: relative; height: 7px; background: #EEEBE2; border-radius: 999px;">
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: #D8D3C6; border-radius: 999px; width: 100.0%;"></div>
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: var(--accent,#0F4741); border-radius: 999px; width: 57.1%;"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: #3A4641; margin-bottom: 7px;"><span>Team coordination & rework</span><span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #A0A69F;">6.5 → <strong style="color: var(--accent,#0F4741); font-weight: 600;">4.0</strong></span></div>
+            <div style="position: relative; height: 7px; background: #EEEBE2; border-radius: 999px;">
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: #D8D3C6; border-radius: 999px; width: 46.4%;"></div>
+              <div style="position: absolute; top: 0; left: 0; height: 7px; background: var(--accent,#0F4741); border-radius: 999px; width: 28.6%;"></div>
+            </div>
+          </div>
+          
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 22px; padding-top: 18px; border-top: 1px solid #E8E4D8;">
+          <div style="font-weight: 600; font-size: 15px;">Total, average</div>
+          <div style="display: flex; align-items: center; gap: 11px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: #A0A69F; text-decoration: line-through;">42.0 hrs</span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--accent,#0F4741)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"></path></svg><span style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--accent,#0F4741);">24.0 hrs</span></div>
+        </div>
+      </div>
+
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 26px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+          <div style="font-weight: 600; font-size: 17px; letter-spacing: -0.02em;">Time saved, task by task</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B756F;">% faster</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Judgment summarization</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 60%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">60%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Matter intake & filing</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 58%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">58%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Drafting an affidavit</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 55%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">55%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Cease-and-desist letter</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 52%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">52%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Client brief preparation</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 50%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">50%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Precedent research</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 48%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">48%</div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: 1; font-size: 13px; color: #3A4641;">Document review · 10 files</div>
+            <div style="width: 120px; height: 8px; background: #EEEBE2; border-radius: 999px; overflow: hidden;"><div style="height: 8px; background: var(--accent,#0F4741); border-radius: 999px; width: 45%;"></div></div>
+            <div style="width: 36px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--accent,#0F4741);">45%</div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECURITY (dark) ============ -->
+  <section id="security" style="margin-top: 100px; background: #0F1A17; color: #fff; position: relative; overflow: hidden; scroll-margin-top: 64px;">
+    <div style="position: absolute; right: -8%; bottom: -34%; font-family: 'DM Sans', sans-serif; font-weight: 700; font-style: italic; font-size: 320px; color: rgba(255,255,255,0.025); letter-spacing: -0.05em; pointer-events: none; line-height: 1;">private</div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 84px 40px; position: relative;">
+      <div style="max-width: 760px;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #9FD6CB; margin-bottom: 18px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #9FD6CB;"></span>Security &amp; data privacy</div>
+        <h2 style="font-weight: 600; font-size: 42px; line-height: 1.05; letter-spacing: -0.032em; margin: 0;">Your firm's data is <em style="font-style: italic; color: #9FD6CB; font-weight: 500;">yours</em>. Full stop.</h2>
+        <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.74); margin: 20px 0 0;">Legal data is privileged, regulated and irreplaceable. LawnchAI is built so the intelligence comes to your data — not the other way around. Nothing your firm creates is ever used to train models beyond your own.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px;">
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">01</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">A private model per firm</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">A dedicated, isolated AI instance for your firm alone. Your context is never pooled with, or visible to, any other customer.</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">02</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">Never trains foundation models</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">Your documents, prompts and outputs never feed a public or shared model. Learning stays inside your firm's private instance.</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">03</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">Encrypted end to end</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">Data is encrypted in transit and at rest, with strict key management. Privileged material is treated as privileged.</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">04</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">Granular access control</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">Role-based permissions decide who sees each matter, document and conversation — down to individual files.</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">05</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">Full audit trail</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">Every action and every agent query is logged. Know exactly who accessed what, and what the agent was asked.</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 22px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(159,214,203,0.14); color: #9FD6CB; display: grid; place-items: center; margin-bottom: 15px;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;">06</span></div>
+          <div style="font-weight: 600; font-size: 16.5px; letter-spacing: -0.015em; margin-bottom: 8px;">You own your data</div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0;">Export or delete everything on demand, with retention rules you control. No lock-in, no quiet data harvesting.</p>
+        </div>
+        
+      </div>
+
+      <!-- privacy promise banner -->
+      <div style="margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; background: rgba(159,214,203,0.08); border: 1px solid rgba(159,214,203,0.2); border-radius: 14px; padding: 22px 26px;">
+        <svg width="30" height="30" viewBox="0 0 16 16" fill="none" stroke="#9FD6CB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M8 1.4l5.4 2.2v3.5c0 3.5-2.3 6.1-5.4 7.1-3.1-1-5.4-3.6-5.4-7.1V3.6z"></path><path d="M5.6 8l1.6 1.7L10.6 6.3"></path></svg>
+        <div style="flex: 1; min-width: 280px;">
+          <div style="font-weight: 600; font-size: 17px; letter-spacing: -0.015em; margin-bottom: 4px;">Our privacy promise</div>
+          <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.74); margin: 0;">Your documents, prompts and outputs are <strong style="color: #fff; font-weight: 600;">never sold, never shared, and never used to train any model outside your firm's private instance.</strong> You can export or delete your data at any time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT LEARNS ============ -->
+  <section id="how" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px 0; scroll-margin-top: 80px;">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 44px;">
+      <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent,#0F4741); margin-bottom: 16px;">How the moat is built</div>
+      <h2 style="font-weight: 600; font-size: 40px; line-height: 1.05; letter-spacing: -0.03em; margin: 0;">The model isn't the moat. What it has watched you do is.</h2>
+      <p style="font-size: 16.5px; line-height: 1.55; color: #3A4641; margin: 18px 0 0;">Working in LawnchAI <em style="font-style: italic; color: var(--accent,#0F4741);">creates</em> the context that makes the agent useful. Using the agent <em style="font-style: italic; color: var(--accent,#0F4741);">reinforces</em> your firm's way of working. A flywheel, not a feature.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+      
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 22px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent,#0F4741); margin-bottom: 12px;">A</div>
+        <div style="font-weight: 600; font-size: 16px; letter-spacing: -0.015em; margin-bottom: 7px;">Capture by default</div>
+        <p style="font-size: 13px; line-height: 1.55; color: #6B756F; margin: 0;">Notes, docs, intake and chat all flow into one context graph per matter — no extra busywork.</p>
+      </div>
+      
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 22px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent,#0F4741); margin-bottom: 12px;">B</div>
+        <div style="font-weight: 600; font-size: 16px; letter-spacing: -0.015em; margin-bottom: 7px;">Ground every answer</div>
+        <p style="font-size: 13px; line-height: 1.55; color: #6B756F; margin: 0;">The agent answers only from your firm’s own files, with a citation on each claim.</p>
+      </div>
+      
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 22px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent,#0F4741); margin-bottom: 12px;">C</div>
+        <div style="font-weight: 600; font-size: 16px; letter-spacing: -0.015em; margin-bottom: 7px;">Learn your voice</div>
+        <p style="font-size: 13px; line-height: 1.55; color: #6B756F; margin: 0;">Drafts come back in your firm’s style because the model learned it from your past work.</p>
+      </div>
+      
+      <div class="lw-card" style="background: #FDFCF8; border: 1px solid #E8E4D8; border-radius: 14px; padding: 24px 22px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent,#0F4741); margin-bottom: 12px;">D</div>
+        <div style="font-weight: 600; font-size: 16px; letter-spacing: -0.015em; margin-bottom: 7px;">Compound over time</div>
+        <p style="font-size: 13px; line-height: 1.55; color: #6B756F; margin: 0;">Each closed matter sharpens the next. The advantage grows the longer you stay.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section id="demo" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px 0; scroll-margin-top: 80px;">
+    <div style="position: relative; background: var(--accent,#0F4741); border-radius: 22px; padding: 64px 56px; overflow: hidden;">
+      <div style="position: absolute; top: -40%; right: -6%; width: 460px; height: 460px; border-radius: 999px; background: radial-gradient(circle, rgba(255,255,255,0.06), rgba(255,255,255,0)); pointer-events: none;"></div>
+      <div style="position: relative; max-width: 640px;">
+        <h2 style="font-weight: 600; font-size: 42px; line-height: 1.05; letter-spacing: -0.032em; margin: 0; color: #fff;">Bring your whole practice into one intelligent workspace.</h2>
+        <p style="font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 20px 0 0;">See LawnchAI run a real matter end to end — and how the private agent learns your firm without your data ever leaving your walls. Book a walkthrough with our team.</p>
+        <div style="display: flex; gap: 13px; margin-top: 32px; flex-wrap: wrap;">
+          <a href="#top" style="text-decoration: none; background: #fff; color: var(--accent,#0F4741); font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 10px; display: inline-flex; align-items: center; gap: 9px;">Book a demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"></path></svg>
+          </a>
+          <a href="#lifecycle" style="text-decoration: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.28); color: #fff; font-size: 15px; font-weight: 500; padding: 14px 24px; border-radius: 10px; display: inline-flex; align-items: center; gap: 9px;">Talk to sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="margin-top: 80px; background: #15201C; color: rgba(255,255,255,0.7);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 56px 40px 40px;">
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 11px; margin-bottom: 16px;">
+            <div style="width: 30px; height: 30px; border-radius: 8px; background: #fff; color: var(--accent,#0F4741); display: grid; place-items: center; font-weight: 700; font-size: 16px; letter-spacing: -0.04em; position: relative;">L<span style="position: absolute; inset: 4px; border: 1px solid rgba(15,71,65,0.2); border-radius: 5px;"></span></div>
+            <span style="font-weight: 600; font-size: 18px; letter-spacing: -0.025em; color: #fff;">Lawnch<em style="font-style: italic; color: #9FD6CB; font-weight: 500;">AI</em></span>
+          </div>
+          <p style="font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); margin: 0; max-width: 300px;">The private AI workspace that runs a legal practice end to end — and learns how your firm works, for your firm only.</p>
+        </div>
+        <div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px;">Product</div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+            <a class="lw-link" href="#lifecycle" style="text-decoration: none; color: rgba(255,255,255,0.7);">Lifecycle</a>
+            <a class="lw-link" href="#agent" style="text-decoration: none; color: rgba(255,255,255,0.7);">The agent</a>
+            <a class="lw-link" href="#how" style="text-decoration: none; color: rgba(255,255,255,0.7);">How it learns</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px;">Trust</div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+            <a class="lw-link" href="#security" style="text-decoration: none; color: rgba(255,255,255,0.7);">Security</a>
+            <a class="lw-link" href="#security" style="text-decoration: none; color: rgba(255,255,255,0.7);">Data privacy</a>
+            <a class="lw-link" href="#security" style="text-decoration: none; color: rgba(255,255,255,0.7);">Private model</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px;">Company</div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+            <a class="lw-link" href="mailto:siddhant@rootzerolabs.com" style="text-decoration: none; color: rgba(255,255,255,0.7);">Book a demo</a>
+            <a class="lw-link" href="mailto:siddhant@rootzerolabs.com" style="text-decoration: none; color: rgba(255,255,255,0.7);">Contact sales</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 48px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.45);">Powered by</span>
+          <span style="background: #fff; border-radius: 8px; padding: 9px 14px; display: inline-flex; align-items: center;"><img src="assets/df4e9d07-d792-46a9-8ede-816d5b96a1ee.png" alt="RootZeroLabs" style="height: 22px; display: block;"></span>
+        </div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: rgba(255,255,255,0.4);">© 2026 RootZeroLabs · All rights reserved</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
 </html>

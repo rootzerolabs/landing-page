@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.gstack/
+
+# Design source bundle (input only; index.html is the built artifact)
+LawnchAI Landing*.html
+_*.png
+_*.cjs
