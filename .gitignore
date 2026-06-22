@@ -28,3 +28,4 @@ dist-ssr
 LawnchAI Landing*.html
 _*.png
 _*.cjs
+.vercel
